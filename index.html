@@ -1,27 +1,50 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Hello!</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-  </head>  
-  <body>
-    <h1>Hi there!</h1>
-    
-    <p>
-      I'm your cool new webpage. Made with <a href="https://glitch.com">Glitch</a>!
-    </p>
+<html lang="en" dir="ltr">
 
-    <!-- include the Glitch button to show what the webpage is about and
-          to make it easier for folks to view source and remix -->
-    <div class="glitchButton" style="position:fixed;top:20px;right:20px;"></div>
-    <script src="https://button.glitch.me/button.js"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <title> voting </title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.6.2/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyColMCNgujzEHoSwDhjsIzdHa9fx4LUCEg",
+    authDomain: "voting-system-vs.firebaseapp.com",
+    databaseURL: "https://voting-system-vs.firebaseio.com",
+    projectId: "voting-system-vs",
+    storageBucket: "",
+    messagingSenderId: "746556471047",
+    appId: "1:746556471047:web:d8facd0d2706fa26d937a2"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col l4">
+        <input type=text id="input" placeholder="add team:" />
+        <a class="waves-effect waves-light btn" id="submit">button</a>
+      </div>
+    </div>
+  </div>
+</body>
+<script type="text/javascript" src="script.js">
+
+</script>
+
 </html>
