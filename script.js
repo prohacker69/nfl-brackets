@@ -12,6 +12,9 @@ function loadTeams(){
  console.log(snapshot)
   let data = snapshot.val()
 console.log(data)
+    for(let keys in data) {
+      document.querySelector(".list").innerHTML += `<div>${data[keys]}</div>`
+    }
 })
 }
 
