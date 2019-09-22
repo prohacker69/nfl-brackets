@@ -1,8 +1,17 @@
-console.log(firebase)
 let button = document.querySelector("#submit")
 button.addEventListener("click",()=>{
   console.log("You clicked me!")
   let team = document.querySelector("#input").value
-  console.log(team)
   firebase.database().ref("/").push(team)
+loadTeams()
 })
+
+function loadTeams(){
+  console.log('hi')
+  firebase.database().ref("/").on("value",(snapshot)=>{
+ console.log(snapshot)
+  let data = snapshot.val()
+console.log(data)
+})
+}
+
