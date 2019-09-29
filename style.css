@@ -1,5 +1,10 @@
 body {
-  background: url('https://a.espncdn.com/photo/2019/0904/nfl_illustration1x_1296x729.png');
+  background: url('https://a.espncdn.com/photo/2019/0710/nfl_arsenals_16x9_608x342.jpg');
   background-repeat: no-repeat;
   background-size: cover
+}
+
+.form {
+  background: rgb(220,220,220,.8);
+  margin-top:30px
 }
