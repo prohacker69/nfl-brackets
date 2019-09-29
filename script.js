@@ -18,13 +18,33 @@ function loadTeams(){
           <span class="card-title">${data[keys]}</span>
         </div>
         <div class="card-action">
-          <a href="#" id="upvote">upvote</a>
-          <a href="#" id="downvote">downvote</a>
+          <a href="#" class="upvote">upvote</a>
+          <a href="#" class="downvote">downvote</a>
         </div>
       </div>
     </div>`
     }
+    loadUpvoteButtons()
+    loadDownvoteButtons()
 })
 }
-
+function loadUpvoteButtons(){
+let upvoteButtons = document.querySelectorAll(".upvote")
+console.log(upvoteButtons)
+  upvoteButtons.forEach(button =>[
+    button.addEventListener("click",()=>{
+      console.log('I work!')
+    })
+    
+  ])
+}
+function loadDownvoteButtons(){
+let downvoteButtons = document.querySelectorAll(".downvote")
+console.log(downvoteButtons)
+  downvoteButtons.forEach(button =>[
+    button.addEventListener("click",()=>{
+      console.log('I work!')
+    })
+  ])
+}
 window.onload = loadTeams 
