@@ -6,7 +6,7 @@ loadTeams()
 })
 
 function loadTeams(){
-  document.querySelector(''.list").innerHTML= ''
+  document.querySelector(".list").innerHTML= ''
   firebase.database().ref("/").on("value",(snapshot)=>{
   let data = snapshot.val()
     for(let keys in data) {
