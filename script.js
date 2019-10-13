@@ -19,6 +19,7 @@ async function loadTeams(){
       <div class="card blue-grey darken-1">
         <div class="card-content white-text">
           <span class="card-title">${team.team}</span>
+
         </div>
         <div class="card-action">
           <a id = ${team.team} href="#" class="upvote">upvote</a>
@@ -44,6 +45,16 @@ console.log(upvoteButtons)
     })
     
   ])
+
 }
 
 window.onload = loadTeams 
+async function loadUpVotes(){
+  let getTeams = await db.collection("teams").get()
+  getTeams.forEach(doc => {
+    let team = doc.data()
+    db.collection("upvotes").where("team", "==",team)
+    let finalTotal = vote.data()
+    console.log(upvotes.length)
+  })
+}
