@@ -7,29 +7,30 @@ loadTeams()
   document.querySelector("#input").value = ""
 })
 
-function loadTeams(){
+async function loadTeams(){
   document.querySelector(".list").innerHTML= ''
-  let allTeams = db.collection("teams").get()
+  let allTeams = await db.collection("teams").get()
   console.log(allTeams)
-//   firebase.database().ref("/").on("value",(snapshot)=>{
-//   let data = snapshot.val()
-//     for(let keys in data) {
-//       document.querySelector(".list").innerHTML += `
-//     <div class="col s12 m6">
-//       <div class="card blue-grey darken-1">
-//         <div class="card-content white-text">
-//           <span class="card-title">${data[keys]}</span>
-//         </div>
-//         <div class="card-action">
-//           <a href="#" class="upvote">upvote</a>
+  allTeams.forEach(doc => {
+    let team = doc.data()
+    console.log(team)
+      document.querySelector(".list").innerHTML += `
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+          <span class="card-title">${team.team}</span>
+        </div>
+        <div class="card-action">
+          <a href="#" class="upvote">upvote</a>
         
-//         </div>
-//       </div>
-//     </div>`
-//     }
-//     loadUpvoteButtons()
+        </div>
+      </div>
+    </div>`
     
-// })
+    loadUpvoteButtons()
+  })
+  
+
 }
 function loadUpvoteButtons(){
 let upvoteButtons = document.querySelectorAll(".upvote")
