@@ -21,7 +21,7 @@ async function loadTeams(){
           <span class="card-title">${team.team}</span>
         </div>
         <div class="card-action">
-          <a href="#" class="upvote">upvote</a>
+          <a id = ${team.team} href="#" class="upvote">upvote</a>
         
         </div>
       </div>
@@ -36,8 +36,11 @@ function loadUpvoteButtons(){
 let upvoteButtons = document.querySelectorAll(".upvote")
 console.log(upvoteButtons)
   upvoteButtons.forEach(button =>[
-    button.addEventListener("click",()=>{
-      console.log('I work!')
+    button.addEventListener("click",(e)=>{
+      console.log(e.target.id)
+      db.collection("upvotes").add({
+        team: e.target.id
+      })
     })
     
   ])
