@@ -1,7 +1,8 @@
 let button = document.querySelector("#submit")
+
 button.addEventListener("click",()=>{
   let team = document.querySelector("#input").value
-  firebase.database().ref("/").push(team)
+  firebase.database().ref("/").push(te9am)
 loadTeams()
   document.querySelector("#input").value = ""
 })
@@ -19,13 +20,13 @@ function loadTeams(){
         </div>
         <div class="card-action">
           <a href="#" class="upvote">upvote</a>
-          <a href="#" class="downvote">downvote</a>
+        
         </div>
       </div>
     </div>`
     }
     loadUpvoteButtons()
-    loadDownvoteButtons()
+    
 })
 }
 function loadUpvoteButtons(){
@@ -38,13 +39,5 @@ console.log(upvoteButtons)
     
   ])
 }
-function loadDownvoteButtons(){
-let downvoteButtons = document.querySelectorAll(".downvote")
-console.log(downvoteButtons)
-  downvoteButtons.forEach(button =>[
-    button.addEventListener("click",()=>{
-      console.log('I work!')
-    })
-  ])
-}
+
 window.onload = loadTeams 
