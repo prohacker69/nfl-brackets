@@ -1,13 +1,24 @@
+// fix check name
+
 let button = document.querySelector("#submit")
 let db = firebase.firestore()
-button.addEventListener("click",()=>{
+button.addEventListener("click",async()=>{
   let team = document.querySelector("#input").value
   db.collection("teams").add({team})
-loadTeams()
-  document.querySelector("#input").value = ""
+let runCheck = await checkNames()
+  if(!runCheck){
+ loadTeams() 
+}
+  else{
+    alert(" error: team already exists")
+  }
+  
+  
+  
 })
 
 async function loadTeams(){
+  document.querySelector("#input").value = ""
   document.querySelector(".list").innerHTML= ''
   let allTeams = await db.collection("teams").get()
   allTeams.forEach(doc => {
@@ -30,7 +41,7 @@ async function loadTeams(){
     
     loadUpvoteButtons()
   loadUpVotes()
-    checkNames()
+  
   })
   
 
@@ -63,12 +74,15 @@ async function checkNames(){
   let getTeams = await db.collection("teams").get()
   getTeams.forEach(async doc => {
     let name = doc.data()
-    let team = name.team. toUppercase()
-    let input = document.querySelector("#input").value.toUppercase()
+    let team = name.team. toUpperCase()
+    
+    let input = document.querySelector("#input").value.toUpperCase()
     console.log(team)
     console.log(input)
-    
+    if(team == input){
+      isThere = true
+    }
   })
-  
+  return isThere
 
 }
