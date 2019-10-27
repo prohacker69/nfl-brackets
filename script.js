@@ -56,5 +56,7 @@ async function loadUpVotes(){
     db.collection("upvotes").where("team", "==",team)
     let finalTotal = vote.data()
     console.log(upvotes.length)
+    document.queryselector('${team.team}')
   })
 }
+
