@@ -10,10 +10,8 @@ loadTeams()
 async function loadTeams(){
   document.querySelector(".list").innerHTML= ''
   let allTeams = await db.collection("teams").get()
-  console.log(allTeams)
   allTeams.forEach(doc => {
     let team = doc.data()
-    console.log(team)
       document.querySelector(".list").innerHTML += `
     <div class="col s12 m6">
       <div class="card blue-grey darken-1">
@@ -35,10 +33,8 @@ async function loadTeams(){
 }
 function loadUpvoteButtons(){
 let upvoteButtons = document.querySelectorAll(".upvote")
-console.log(upvoteButtons)
-  upvoteButtons.forEach(button =>[
+upvoteButtons.forEach(button =>[
     button.addEventListener("click",(e)=>{
-      console.log(e.target.id)
       db.collection("upvotes").add({
         team: e.target.id
       })
@@ -51,12 +47,11 @@ console.log(upvoteButtons)
 window.onload = loadTeams 
 async function loadUpVotes(){
   let getTeams = await db.collection("teams").get()
-  getTeams.forEach(doc => {
+  getTeams.forEach(async doc => {
     let team = doc.data()
-    db.collection("upvotes").where("team", "==",team)
-    let finalTotal = vote.data()
-    console.log(upvotes.length)
-    document.queryselector('${team.team}')
+    let upvotes= await db.collection("upvotes"). where("team","==", team.team).get()
+    
+    document.queryselector('#${team.team}').innerHTML+= upvotes.docs.length
   })
 }
 
