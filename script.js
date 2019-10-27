@@ -20,13 +20,16 @@ async function loadTeams(){
 
         </div>
         <div class="card-action">
-          <a id = ${team.team} href="#" class="upvote">upvote</a>
+          <a id = "${team.team}" href="#" class="upvote">upvote</a>
+          <a id = "A${team.team}" href="#" class="upvote"></a>
+
         
         </div>
       </div>
     </div>`
     
     loadUpvoteButtons()
+  loadUpVotes()
   })
   
 
@@ -47,11 +50,12 @@ upvoteButtons.forEach(button =>[
 window.onload = loadTeams 
 async function loadUpVotes(){
   let getTeams = await db.collection("teams").get()
+  console.log(getTeams)
   getTeams.forEach(async doc => {
     let team = doc.data()
     let upvotes= await db.collection("upvotes"). where("team","==", team.team).get()
-    
-    document.queryselector('#${team.team}').innerHTML+= upvotes.docs.length
+    console.log(upvotes)
+    document.querySelector(`#A${team.team}`).innerHTML = upvotes.docs.length
   })
 }
 
