@@ -30,6 +30,7 @@ async function loadTeams(){
     
     loadUpvoteButtons()
   loadUpVotes()
+    checkNames()
   })
   
 
@@ -50,12 +51,24 @@ upvoteButtons.forEach(button =>[
 window.onload = loadTeams 
 async function loadUpVotes(){
   let getTeams = await db.collection("teams").get()
-  console.log(getTeams)
   getTeams.forEach(async doc => {
     let team = doc.data()
     let upvotes= await db.collection("upvotes"). where("team","==", team.team).get()
-    console.log(upvotes)
     document.querySelector(`#A${team.team}`).innerHTML = upvotes.docs.length
   })
 }
 
+async function checkNames(){
+  let isThere = false
+  let getTeams = await db.collection("teams").get()
+  getTeams.forEach(async doc => {
+    let name = doc.data()
+    let team = name.team. toUppercase()
+    let input = document.querySelector("#input").value.toUppercase()
+    console.log(team)
+    console.log(input)
+    
+  })
+  
+
+}
