@@ -6,14 +6,14 @@ button.addEventListener("click",async()=>{
   let team = document.querySelector("#input").value
   db.collection("teams").add({team})
 let runCheck = await checkNames()
-  if(!runCheck){
- loadTeams() 
-}
-  else{
-    alert(" error: team already exists")
-  }
+//   if(!runCheck){
+//  loadTeams() 
+// }
+//   else{
+//     alert(" error: team already exists")
+//   }
   
-  
+  console.log(runCheck)
   
 })
 
