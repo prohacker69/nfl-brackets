@@ -1,8 +1,8 @@
-// fix check name
+// fix return button
 
 let button = document.querySelector("#submit")
 let db = firebase.firestore()
-async function submitForm(){
+async function submitForm(e){
   e.preventDefault
   let team = document.querySelector("#input").value
 let duplicate = await checkNames()
