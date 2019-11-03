@@ -2,10 +2,12 @@
 
 let button = document.querySelector("#submit")
 let db = firebase.firestore()
-button.addEventListener("click",async()=>{
+let form = document.querySelector(`form`)
+form.addEventListener("click",async()=>{
+  e.prevent
   let team = document.querySelector("#input").value
 let duplicate = await checkNames()
-  if(!runCheck){
+  if(!duplicate){
      db.collection("teams").add({team})
  loadTeams() 
 }
@@ -13,7 +15,7 @@ let duplicate = await checkNames()
     alert(" error: team already exists")
   }
   
-  console.log(runCheck)
+  console.log(duplicate)
   
 })
 
@@ -52,7 +54,8 @@ upvoteButtons.forEach(button =>[
     button.addEventListener("click",(e)=>{
       db.collection("upvotes").add({
         team: e.target.id
-      })
+        })
+      loadTeams()
     })
     
   ])
