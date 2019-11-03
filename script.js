@@ -4,14 +4,14 @@ let button = document.querySelector("#submit")
 let db = firebase.firestore()
 button.addEventListener("click",async()=>{
   let team = document.querySelector("#input").value
-  db.collection("teams").add({team})
-let runCheck = await checkNames()
-//   if(!runCheck){
-//  loadTeams() 
-// }
-//   else{
-//     alert(" error: team already exists")
-//   }
+let duplicate = await checkNames()
+  if(!runCheck){
+     db.collection("teams").add({team})
+ loadTeams() 
+}
+  else{
+    alert(" error: team already exists")
+  }
   
   console.log(runCheck)
   
