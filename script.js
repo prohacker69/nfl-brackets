@@ -2,9 +2,8 @@
 
 let button = document.querySelector("#submit")
 let db = firebase.firestore()
-let form = document.querySelector(`form`)
-form.addEventListener("click",async()=>{
-  e.prevent
+async function submitForm(){
+  e.preventDefault
   let team = document.querySelector("#input").value
 let duplicate = await checkNames()
   if(!duplicate){
@@ -17,7 +16,7 @@ let duplicate = await checkNames()
   
   console.log(duplicate)
   
-})
+}
 
 async function loadTeams(){
   document.querySelector("#input").value = ""
