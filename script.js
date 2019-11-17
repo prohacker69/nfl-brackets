@@ -1,9 +1,8 @@
-// fix return button
 
 let button = document.querySelector("#submit")
 let db = firebase.firestore()
 button.addEventListener("click", async(e)=>{
-e.preventDefault
+e.preventDefault()
   let team = document.querySelector("#input").value
 let duplicate = await checkNames()
   if(!duplicate){
